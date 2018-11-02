@@ -8,6 +8,9 @@ module.exports.respond = async (event, context) => {
 
   return {
     statusCode: 200,
-    body: randomPicker.generateResponse(parsedBody.text)
+    body: JSON.stringify({
+      response_type: 'in_channel',
+      text: randomPicker.generateResponse(parsedBody.text)
+    })
   };
 };
